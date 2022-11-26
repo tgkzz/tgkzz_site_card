@@ -6,7 +6,8 @@
   {% for i in posts %}
   <li>
     <h2>{{i.name}}</h2>
-    <p>{{i.desc}}</p>
+    <p>{{i.desc|truncatewords:3}}</p>
+    <a class="btn btn-primary" href="{{ i.get_absolute_url }}" role="button">Read more about {{ i.name }}</a>
     <hr>
   </li>
   {% endfor %}

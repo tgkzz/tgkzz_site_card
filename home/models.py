@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Skills(models.Model):
@@ -10,3 +11,6 @@ class Skills(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('my_post', kwargs={'post_id': self.pk})

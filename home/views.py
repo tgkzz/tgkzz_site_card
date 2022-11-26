@@ -4,12 +4,31 @@ from .models import *
 
 
 def home(request):
-    return render(request, 'home/home.html', {'title': 'Home Page'})
+    context = {
+        'title': 'Home Page'
+    }
+    return render(request, 'home/home.html', context=context)
 
 
 def skills(request):
     posts = Skills.objects.all()
-    return render(request, 'home/skills.html', {'posts': posts})
+    context = {
+        'title': 'Skills',
+        'posts': posts
+    }
+    return render(request, 'home/skills.html', context=context)
+
+
+def show_my_post(request, post_id):
+    return HttpResponse(f"my skill with number = {post_id}")
+
+
+def login(request):
+    return HttpResponse("Hello from login")
+
+
+def signup(request):
+    return HttpResponse("Hello from sign-up")
 
 
 def pageNotFound(request, exception):
